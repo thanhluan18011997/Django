@@ -24,7 +24,12 @@ class Student(models.Model):
 class Teacher(models.Model):
     name = models.CharField(max_length=50, null=False, unique=True)
     email = models.EmailField(max_length=40)
-    students = models.ManyToManyField(Student,  related_name="teachers")
+    students = models.ManyToManyField(Student, related_name="teachers")
 
     def __str__(self):
         return self.name
+
+
+class People(models.Model):
+    name = models.CharField(max_length=50)
+    balance = models.PositiveIntegerField()
