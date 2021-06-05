@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test View</title>
+</head>
+<body>
+
+<h3 style="color: chocolate">All student of {{ bk.name }} school:</h3>
+<ul>
+{% for student in student_list %}
+    <li>{{ student.name }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
