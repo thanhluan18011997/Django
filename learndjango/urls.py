@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import test_function_view, test_class_base_view, using_simple_school_serrializer, \
     using_school_model_serrializer, using_viewset
+from .views import LoginView, RegisterView, RefreshView
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -12,5 +13,8 @@ urlpatterns = [
     path("simpleapi/", using_simple_school_serrializer.as_view()),
     path("studentapi/<int:id>", using_school_model_serrializer.as_view()),
     path("studentapi/", using_school_model_serrializer.as_view()),
-    path("", include(router.urls))
+    path("", include(router.urls)),
+    path('login/', LoginView.as_view()),
+    path('register/', RegisterView.as_view()),
+    path('refresh/', RefreshView.as_view()),
 ]

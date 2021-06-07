@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import *
 
 
@@ -28,3 +29,20 @@ class StudentModelSerializer(serializers.ModelSerializer):
         if self.is_valid(raise_exception=True):
             instance = Student.objects.create(**validated_data)
             return instance
+
+
+# authentication
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+
+
+class RegisterSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+    name = serializers.CharField()
+
+
+class RefreshSerializer(serializers.Serializer):
+    refresh = serializers.CharField(max_length=255)
